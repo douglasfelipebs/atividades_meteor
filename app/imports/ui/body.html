@@ -1,0 +1,54 @@
+<body>
+
+<div class="menu-lateral">
+  <div class="logo">
+    <h3>SUA LOGO</h3>
+    {{> loginButtons}}
+  </div>
+  <ul>
+    {{#each menu_item}}
+      {{> menu nome=nome}}
+    {{/each}}
+  </ul>
+</div>
+
+<div class="content">
+  <div class="header">
+    <h1>Projetos</h1>
+    {{#if currentUser}}
+      <button class="btn btn-sm btn-info" id="novoProjeto">Novo Projeto</button>
+    {{/if}}
+  </div>
+
+  {{#if currentUser}}
+    {{#if insereProjeto}}
+      <form id="formInsertProjeto" class="form-group">
+        <div class="row">
+          <div class="col-sm-9">
+            <label for="nome">Nome:</label>
+            <input style="width: 90%" required type="text" id="nome" name="nome"/>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-sm-5">
+            <label for="dataInicio">Data de Início:</label>
+            <input required type="date" name="dataInicio" id="dataInicio"/>
+          </div>
+          <div class="col-sm-4">
+            <label for="dataFinal">Data Final:</label>
+            <input required type="date" name="dataFinal" id="dataFinal"/>
+          </div>
+          <div class="col-sm-3">
+            <button type="submit" class="btn btn-success">Salvar</button>
+          </div>
+        </div>
+      </form>
+    {{/if}}
+  {{/if}}
+  <ul>
+    {{#each projetos}}
+      {{> projeto}}
+    {{/each}}
+  </ul>
+</div>
+</body>

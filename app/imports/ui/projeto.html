@@ -1,0 +1,61 @@
+<template name="projeto">
+  <li class="js-toggleOpen">
+    <button class="delete">&times;</button>
+    <span class="text"><strong>{{nome}}</strong> (Início: {{formataDataBrasileira dataInicio}}
+      , Previsão: {{formataDataBrasileira dataFinal}})</span>
+
+    {{#if atrazado}}
+      <span style="color: red; font-weight: bold">ATRAZADO</span>
+    {{/if}}
+
+    {{#if (or isOpen (equals porcentagem "sem_atividades"))}}
+      {{#if currentUser}}
+        <button class="btn btn-sm btn-info" id="novaAtividade">Nova Atividade</button>
+      {{/if}}
+    {{/if}}
+
+    <p style="width: 300px; padding: 0; margin: 10px;">
+      {{> progresso porcentagem=porcentagem }}
+    </p>
+
+    {{#if (or isOpen (equals porcentagem "sem_atividades"))}}
+      {{#if insereAtividade}}
+        <form id="formInsertAtividade" class="form-group">
+          <div class="row">
+            <div class="col-sm-9">
+              <label for="nome">Nome da Atividade:</label>
+              <input style="width: 70%" required type="text" id="nome" name="nome"/>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-sm-5">
+              <label for="dataInicio">Data de Início:</label>
+              <input required type="date" name="dataInicio" id="dataInicio"/>
+            </div>
+            <div class="col-sm-4">
+              <label for="dataFinal">Data Final:</label>
+              <input required type="date" name="dataFinal" id="dataFinal"/>
+            </div>
+            <div class="col-sm-3">
+              <button type="submit" class="btn btn-success">Salvar</button>
+            </div>
+          </div>
+        </form>
+      {{/if}}
+      {{#each atividades}}
+        {{> atividade }}
+      {{/each}}
+    {{/if}}
+  </li>
+</template>
+
+<template name="progresso">
+  {{#unless (equals porcentagem "sem_atividades")}}
+    <div id="myProgress">
+      <div id="myBar" style="width: {{this.porcentagem}}%"></div>
+    </div>
+    Projeto {{porcentagem}}% Completo
+  {{else}}
+    Projeto não possui atividades
+  {{/unless}}
+</template>
