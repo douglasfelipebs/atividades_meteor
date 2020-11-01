@@ -21,5 +21,5 @@ cd app
 meteor
 ```
 
-###\#4 - Acessar
-O aplicativo estará disponível em <a href="http://localhost:3000" target="_blank">localhost:3000</a>
+### \#4 - Acessar
+O aplicativo estará disponível em [http://localhost:3000](http://localhost:3000)
