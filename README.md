@@ -26,7 +26,7 @@ Ou siga as instruções no link -> [https://docs.docker.com/compose/install/](ht
 docker-compose up -d
 ```
 
-#### \#4 - Acesse o app no [http://localhost](http://localhost)
+#### \#4 - Acesse o app em [http://localhost](http://localhost)
 
 Para efetuar alterações no aplicavo é necessária a instalação do Meteor.
-Siga as informações no [README-DEVELOPER.md](https://github.com/douglasfelipebs/atividades_meteor/blob/main/README-DEVELOPER.md)  
+Siga as instruções no [README-DEVELOPER.md](https://github.com/douglasfelipebs/atividades_meteor/blob/main/README-DEVELOPER.md)  
