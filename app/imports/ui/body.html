@@ -7,16 +7,16 @@
   </div>
   <ul>
     {{#each menu_item}}
-      {{> menu nome=nome}}
+      {{> menu nome=nome icone=icone}}
     {{/each}}
   </ul>
 </div>
 
 <div class="content">
   <div class="header">
-    <h1>Projetos</h1>
+    <h1>Meus Projetos</h1>
     {{#if currentUser}}
-      <button class="btn btn-sm btn-info" id="novoProjeto">Novo Projeto</button>
+      <button class="btn btn-sm btn-info pull-right" id="novoProjeto">Novo Projeto</button>
     {{/if}}
   </div>
 

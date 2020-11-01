@@ -18,17 +18,31 @@ Template.body.onCreated(function () {
 
 Template.body.helpers({
   menu_item() {
-    return [
+    const menus = [
       {
-        nome: 'Home',
-        icone: 'fas fa-home',
-
+        nome: 'Menu',
+        icone: icones[getRandomInt(0, 10)],
       },
       {
-        nome: 'Projetos',
-        icone: 'fas fa-tasks',
+        nome: 'Meramete',
+        icone: icones[getRandomInt(0, 10)],
+      },
+      {
+        nome: 'Ilustrativo',
+        icone: icones[getRandomInt(0, 10)],
+      },
+      {
+        nome: 'E Dinâmico',
+        icone: icones[getRandomInt(0, 10)],
       },
     ];
+    for (let i = 1; i < getRandomInt(2, 7); i++) {
+      menus.push({
+        nome: i,
+        icone: icones[getRandomInt(0, 10)],
+      })
+    }
+    return menus;
   },
   projetos() {
     return Projetos.find({}, { sort: { dataFinal: 1 } });
@@ -81,3 +95,23 @@ Template.body.events({
     instance.state.set('hideCompleted', event.target.checked);
   },
 });
+
+function getRandomInt(min, max) {
+  min = Math.ceil(min);
+  max = Math.floor(max);
+  return Math.floor(Math.random() * (max - min)) + min;
+}
+
+const icones = [
+  'fa fa-tasks',
+  'fa fa-user-o',
+  'fa fa-address-book',
+  'fa fa-anchor',
+  'fa fa-bed',
+  'fa fa-battery-half',
+  'fa fa-bookmark',
+  'fa fa-car',
+  'fa fa-clone',
+  'fa fa-cutlery',
+  'fa fa-cloud-upload',
+];
