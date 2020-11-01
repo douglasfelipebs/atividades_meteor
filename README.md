@@ -23,7 +23,7 @@ Ou siga as instruções no link -> [https://docs.docker.com/compose/install/](ht
 
 #### \#3 - Suba o contâiner que contém o meteor e o programa buildado
 ```
-docker-compose up -d
+docker-compose up --build -d
 ```
 
 #### \#4 - Acesse o app em [http://localhost](http://localhost)
